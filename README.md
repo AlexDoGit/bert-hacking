@@ -4,6 +4,8 @@
 
 Python version : 3.11
 
+Code does not support multi-gpu.
+
 ```bash 
 conda create -n bert-hacking python=3.11 -y
 conda activate bert-hacking
