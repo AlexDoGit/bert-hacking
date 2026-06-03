@@ -19,7 +19,7 @@ def load_training_arguments(loop_config: LoopConfig) -> TrainingArguments:
         os.system(f'rm -rf {loop_config.output_dir}')
 
     return TrainingArguments(
-        bf16= str(device) == True, # Faster training
+        bf16= str(device) == "cuda", # Faster training
         # Hyperparameters
         num_train_epochs = loop_config.n_epochs,
         learning_rate = loop_config.learning_rate,
