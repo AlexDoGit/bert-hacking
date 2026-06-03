@@ -39,7 +39,7 @@ def load_training_arguments(loop_config: LoopConfig) -> TrainingArguments:
         load_best_model_at_end = True,
         save_total_limit =  2,
         disable_tqdm = False, 
-        dataloader_pin_memory = str(device) != "cuda",
+        dataloader_pin_memory = str(device) == "cpu",
         # SEED
         seed = loop_config.seed
     )
