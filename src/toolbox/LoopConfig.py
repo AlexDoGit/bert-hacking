@@ -118,6 +118,9 @@ class LoopConfig:
         self.device_batch_size_for_prediction = self.__extract_value("device_batch_size_for_prediction", **kwargs)
         self.test_mode = self.__extract_value("test_mode", **kwargs)
 
+        # Ensure device_batch_size <= batch_size 
+        self.device_batch_size = min(self.batch_size, self.device_batch_size)
+
     def to_dict(self) -> dict:
         return {key : self.__getattribute__(key) for key in self.VARIABLES_TO_CHECK_FOR_EQUALITY}
     
