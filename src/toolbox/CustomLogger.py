@@ -5,7 +5,7 @@ from pandas import Timestamp
 from . import LoopConfig
 # SCRIPTS ######################################################################
 class CustomLogger:
-    def __init__(self, foldername : str = None):
+    def __init__(self, foldername : str = "./custom_logs"):
         self.name = ""
         self.foldername = foldername
 
