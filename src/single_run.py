@@ -52,7 +52,7 @@ def single_run(
 
     # Use time as hash
     hash_, logs_to_save = create_hash(loop_config), None
-    tokenizer, ds_loop, dsd_loop, ds_pred, predictions, model = (None,) * 6
+    dichotomized_df, dichotomized_df_prediction, dsd_loop, model, ds_pred = (None,)*5
     try: 
         # Dichotomization: dichotomization_label
         run_timer["preprocess_data"] = time()
@@ -67,6 +67,7 @@ def single_run(
         logger(f"Effective distribution: {effective_distrib} — requested : {loop_config.sampling_method}")
         # Prepare tokenize texts: model_name
         dsd_loop, max_length_capped = tokenize_chunk_pad_split(df_sample, "training", loop_config)
+        del df_sample
         run_timer["preprocess_data"] = time() - run_timer["preprocess_data"] 
         
         # Prepare model: model_name
@@ -144,7 +145,7 @@ def single_run(
         logger("Loop failed")
         logger(f"Error during loop {hash_}\n{loop_config}\n{e}\n\n", type="ERRORS")
     finally: 
-            del tokenizer, ds_loop, dsd_loop, ds_pred, predictions, model
+            del dichotomized_df, dichotomized_df_prediction, dsd_loop, model, ds_pred
             clean() 
 
     return hash_, logs_to_save
