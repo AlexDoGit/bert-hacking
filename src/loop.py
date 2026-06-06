@@ -31,10 +31,9 @@ def loop():
         df_prediction = pd.read_csv(dataset_info["filepath-predict"], sep=dataset_info.get("csv-sep", ","))
         df_prediction = sanitize_df(df_prediction, **dataset_info)
         for label in labels: 
-            task_name = f"{dataset_info['name']}-{label}"
             for local_config in product(*parameters_values):
                 loop_config = LoopConfig(
-                    task_name=task_name,
+                    dataset_name=dataset_info['name'],
                     dichotomization_label = label,
                     **{n: v for n,v in zip(parameter_names,local_config)},
                     test_mode = TEST_MODE, 

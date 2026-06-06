@@ -156,6 +156,6 @@ if __name__=="__main__":
     df = pd.read_csv("./data/ideology_news-stratified_year_balanced.csv")
     df = sanitize_df(df, text_col = "content", label_col = "bias_text", id_col="ID")
     df_prediction = df.copy()
-    loop_config = LoopConfig(task_name = "TASK-left", dichotomization_label="left", test_mode=True)
+    loop_config = LoopConfig(dataset_name = "TASK-left", dichotomization_label="left", test_mode=True)
 
     print(single_run(df, df_prediction, loop_config))

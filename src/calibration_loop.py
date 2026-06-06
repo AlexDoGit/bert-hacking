@@ -10,7 +10,7 @@ from toolbox import sanitize_df, LoopConfig
 
 datafile = "./data/ideology_news-stratified_year_balanced.csv"
 loop_config = LoopConfig(
-    task_name="calibration-loop",
+    dataset_name="calibration-loop",
     dichotomization_label="left",
 
     N_annotated = 1000, 

@@ -125,8 +125,8 @@ def sample_N_documents(df: pd.DataFrame, loop_config: LoopConfig)->tuple[pd.Data
     """
     stratification_col = loop_config.sampling_method["stratified"]
     balance = loop_config.sampling_method["balance"]
-    cache_file = (f"{loop_config.task_name}-{loop_config.N_annotated}-"
-        f"{stratification_col}-{balance}-{loop_config.seed}.csv")
+    cache_file = (f"{loop_config.dataset_name}-{loop_config.dichotomization_label}-"
+        f"{loop_config.N_annotated}-{stratification_col}-{balance}-{loop_config.seed}.csv")
     
     if cache_file in os.listdir("./.cache"):
         id_samples = pd.read_csv(f"./.cache/{cache_file}")["id_samples"].tolist()
@@ -181,7 +181,7 @@ def get_tokenized_texts(
     loop_config: LoopConfig
 ) -> dict[str:dict]:
     """"""
-    cache_file = (f"full-tokenized-{df_name}-{loop_config.task_name}-"
+    cache_file = (f"full-tokenized-{df_name}-{loop_config.dataset_name}-"
         f"{loop_config.model_name.replace('/','-')}.json")
     
     if cache_file in os.listdir("./.cache"):

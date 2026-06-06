@@ -39,7 +39,7 @@ class LoopConfig:
     }
 
     VARIABLES_TO_CHECK_FOR_EQUALITY = [
-        "task_name", 
+        "dataset_name", 
         "dichotomization_label", 
 
         "N_annotated", 
@@ -94,12 +94,12 @@ class LoopConfig:
                 f"{self.VARIABLES_TYPE[param_name]} but received {kwargs.get(param_name, None)}"))
 
 
-    def __init__(self, task_name : str, dichotomization_label : str, **kwargs) -> None:
+    def __init__(self, dataset_name : str, dichotomization_label : str, **kwargs) -> None:
         """
         Takes in any kwargs and return a dictionnary with the expected keys, default 
         values and format
         """
-        self.task_name = str(task_name)
+        self.dataset_name = str(dataset_name)
         self.dichotomization_label = str(dichotomization_label)
 
         self.N_annotated = self.__extract_value("N_annotated", **kwargs)

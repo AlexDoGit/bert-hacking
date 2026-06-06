@@ -29,7 +29,7 @@ def extract_hyperparameters(config_json: dict):
     return parameter_names, parameters_values
 
 def create_hash(loop_config:LoopConfig)->str:
-    s = str(time()).replace(".","") + f"-{loop_config.task_name}"
+    s = str(time()).replace(".","") + f"-{loop_config.dataset_name}-{loop_config.dichotomization_label}"
     h = hashlib.new('sha256')
     h.update(s.encode())
     return h.hexdigest()
