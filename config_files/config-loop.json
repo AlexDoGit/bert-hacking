@@ -35,9 +35,9 @@
     },
     "model-hyperparameters":{
         "model_name": [
+            "microsoft/deberta-v2-xlarge",
             "google-bert/bert-base-uncased",
             "answerdotai/ModernBERT-base",
-            "microsoft/deberta-v2-xlarge",
             "FacebookAI/roberta-base"
         ],
         "learning_rate":[
