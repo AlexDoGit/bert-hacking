@@ -35,8 +35,7 @@
     },
     "model-hyperparameters":{
         "model_name": [
-            "google-bert/bert-base-uncased",
-            "FacebookAI/roberta-base"
+            "google-bert/bert-base-uncased"
         ],
         "learning_rate":[
             5e-4,
