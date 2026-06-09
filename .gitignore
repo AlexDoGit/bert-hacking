@@ -9,3 +9,5 @@ predictions_save/
 *.html
 .cache
 .env
+# Don't save updates of the results
+results/
